@@ -1,6 +1,15 @@
+let playerAttack
+
 function startGame() {
     let petButton = document.getElementById("pet-button")
     petButton.addEventListener("click", selectPetPlayer)
+
+    let fireButton = document.getElementById("fire-button")
+    fireButton.addEventListener("click", fireAttack)
+    let waterButton = document.getElementById("water-button")
+    waterButton.addEventListener("click", waterAttack)
+    let plantButton = document.getElementById("plant-button")
+    plantButton.addEventListener("click", plantAttack)
 }
 
 function selectPetPlayer() {
@@ -33,6 +42,19 @@ function selectPetOpponent() {
     } else {
         spanPetOpponent.innerHTML = "Ratigueya"
     }
+}
+
+function fireAttack() {
+    playerAttack = "FIRE"
+    alert(playerAttack)
+}
+function waterAttack() {
+    playerAttack = "WATER"
+    alert(playerAttack)
+}
+function plantAttack() {
+    playerAttack = "PLANT"
+    alert(playerAttack)
 }
 
 function odd(min,max) {
