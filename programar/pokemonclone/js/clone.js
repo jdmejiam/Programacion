@@ -1,4 +1,5 @@
 let playerAttack
+let opponentAttack
 
 function startGame() {
     let petButton = document.getElementById("pet-button")
@@ -32,12 +33,12 @@ function selectPetPlayer() {
 }
 
 function selectPetOpponent() {
-    let randomAttack = odd(1,3)
+    let randomPet = odd(1,3)
     let spanPetOpponent = document.getElementById("pet-opponent")
 
-    if (randomAttack == 1) {
+    if (randomPet == 1) {
         spanPetOpponent.innerHTML = "Hipodoge"
-    } else if (randomAttack == 2) {
+    } else if (randomPet == 2) {
         spanPetOpponent.innerHTML = "Capipepo"
     } else {
         spanPetOpponent.innerHTML = "Ratigueya"
@@ -46,15 +47,27 @@ function selectPetOpponent() {
 
 function fireAttack() {
     playerAttack = "FIRE"
-    alert(playerAttack)
+    randomOpponentAttack()
 }
 function waterAttack() {
     playerAttack = "WATER"
-    alert(playerAttack)
+    randomOpponentAttack()
 }
 function plantAttack() {
     playerAttack = "PLANT"
-    alert(playerAttack)
+    randomOpponentAttack()
+}
+
+function randomOpponentAttack() {
+    let randomAttack = odd(1,3)
+    
+    if (randomAttack == 1) {
+        opponentAttack = "FIRE"
+    } else if (randomAttack == 2) {
+        opponentAttack = "WATER"
+    } else {
+        opponentAttack = "PLANT"
+    }
 }
 
 function odd(min,max) {
