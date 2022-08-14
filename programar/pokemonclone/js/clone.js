@@ -69,14 +69,28 @@ function randomOpponentAttack() {
         opponentAttack = "PLANT"
     }
 
-    createMessage()
+    combat()
 }
 
-function createMessage() {
+function combat() {
+    if (opponentAttack == playerAttack) {
+        createMessage("DRAW")
+        } else if (playerAttack == "FIRE" && opponentAttack == "PLANT") {
+        createMessage("YOU WIN")
+        } else if (playerAttack == "WATER" && opponentAttack == "FIRE") {
+        createMessage("YOU WIN")
+        } else if (playerAttack == "PLANT" && opponentAttack == "WATER") {
+        createMessage("YOU WIN")
+        } else {
+        createMessage("YOU LOSE")
+        }
+}
+
+function createMessage(result) {
     let messageSection = document.getElementById("messages")
     
     let paragraph = document.createElement("p")
-    paragraph.innerHTML = "Your pet attacked with " + playerAttack + " your opponent's pet attacked with " + opponentAttack  + " TBD"
+    paragraph.innerHTML = "Your pet attacked with " + playerAttack + " your opponent's pet attacked with " + opponentAttack  + " - " + result
 
     messageSection.appendChild(paragraph)
 }
