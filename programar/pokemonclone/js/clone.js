@@ -68,6 +68,17 @@ function randomOpponentAttack() {
     } else {
         opponentAttack = "PLANT"
     }
+
+    createMessage()
+}
+
+function createMessage() {
+    let messageSection = document.getElementById("messages")
+    
+    let paragraph = document.createElement("p")
+    paragraph.innerHTML = "Your pet attacked with " + playerAttack + " your opponent's pet attacked with " + opponentAttack  + " TBD"
+
+    messageSection.appendChild(paragraph)
 }
 
 function odd(min,max) {
