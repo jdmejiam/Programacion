@@ -1,5 +1,7 @@
 let playerAttack
 let opponentAttack
+let playerLives = 3
+let opponentLives = 3
 
 function startGame() {
     let petButton = document.getElementById("pet-button")
@@ -73,17 +75,38 @@ function randomOpponentAttack() {
 }
 
 function combat() {
+    let spanPlayerLives = document.getElementById("player-lives")
+    let spanOpponentLives = document.getElementById("opponent-lives")
+    
     if (opponentAttack == playerAttack) {
         createMessage("DRAW")
         } else if (playerAttack == "FIRE" && opponentAttack == "PLANT") {
         createMessage("YOU WIN")
+        opponentLives--
+        spanOpponentLives.innerHTML = opponentLives
         } else if (playerAttack == "WATER" && opponentAttack == "FIRE") {
         createMessage("YOU WIN")
+        opponentLives--
+        spanOpponentLives.innerHTML = opponentLives
         } else if (playerAttack == "PLANT" && opponentAttack == "WATER") {
         createMessage("YOU WIN")
+        opponentLives--
+        spanOpponentLives.innerHTML = opponentLives
         } else {
         createMessage("YOU LOSE")
+        playerLives--
+        spanPlayerLives.innerHTML = playerLives
         }
+
+        checkLives()
+}
+
+function checkLives() {
+    if (opponentLives == 0) {
+        createFinalMessage("CONGRATULATIONS, YOU WIN")
+    } else if (playerLives == 0) {
+        createFinalMessage("YOU LOSE")
+    }
 }
 
 function createMessage(result) {
@@ -91,6 +114,15 @@ function createMessage(result) {
     
     let paragraph = document.createElement("p")
     paragraph.innerHTML = "Your pet attacked with " + playerAttack + " your opponent's pet attacked with " + opponentAttack  + " - " + result
+
+    messageSection.appendChild(paragraph)
+}
+
+function createFinalMessage(finalResult) {
+    let messageSection = document.getElementById("messages")
+
+    let paragraph = document.createElement("p")
+    paragraph.innerHTML = finalResult
 
     messageSection.appendChild(paragraph)
 }
