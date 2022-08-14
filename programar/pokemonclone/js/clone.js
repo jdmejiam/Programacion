@@ -13,6 +13,9 @@ function startGame() {
     waterButton.addEventListener("click", waterAttack)
     let plantButton = document.getElementById("plant-button")
     plantButton.addEventListener("click", plantAttack)
+
+    let restartButton = document.getElementById("restart-button")
+    restartButton.addEventListener("click", restartGame)
 }
 
 function selectPetPlayer() {
@@ -125,6 +128,17 @@ function createFinalMessage(finalResult) {
     paragraph.innerHTML = finalResult
 
     messageSection.appendChild(paragraph)
+
+    let fireButton = document.getElementById("fire-button")
+    fireButton.disabled = true
+    let waterButton = document.getElementById("water-button")
+    waterButton.disabled = true
+    let plantButton = document.getElementById("plant-button")
+    plantButton.disabled = true
+}
+
+function restartGame() {
+    location.reload()
 }
 
 function odd(min,max) {
