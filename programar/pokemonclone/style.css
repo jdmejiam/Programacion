@@ -1,8 +1,65 @@
-.title
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Righteous&display=swap');
+
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #100f0f;
+}
+
+#select-mascot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    color: #e2dcc8;
+    font-size: 32px;
+    font-family: "Righteous", cursive;
+}
+
+.subtitle {
+    color: #e2dcc8;
+    font-size: 20px;
+}
+
+.cards {
+    display: flex;
+    gap: 10px;
+}
+
+.pet-card {
+    width: 180px;
+    height: 100px;
+    background: #0f3d3e;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e2dcc8;
+}
+
+.pet-card img
 {
-    color: turquoise;
-    width: 280px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+#pet-button{
+    width: 180px;
     height: 40px;
-    background-color: #1a1a1a;
-    border-radius: 10px;
+    border-radius: 20px;
+    background: transparent;
+    border: 2px solid #e2dcc8;
+    color: #e2dcc8;
+    font-family: "Poppins", sans-serif;
+    margin-top: 30px;
+}
+
+input
+{
+    display: none;
 }
