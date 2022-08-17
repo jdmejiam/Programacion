@@ -29,7 +29,7 @@ function selectPetPlayer() {
     petSelectSection.style.display = "none"
     
     let attackSelectSection = document.getElementById("select-attack")
-    attackSelectSection.style.display = "block"
+    attackSelectSection.style.display = "flex"
     
     let inputHipodoge = document.getElementById("hipodoge")
     let inputCapipepo = document.getElementById("capipepo")
@@ -120,26 +120,30 @@ function checkLives() {
     if (opponentLives == 0) {
         createFinalMessage("CONGRATULATIONS, YOU WIN")
     } else if (playerLives == 0) {
-        createFinalMessage("YOU LOSE")
+        createFinalMessage("YOU LOSE, TRY AGAIN")
     }
 }
 
 function createMessage(result) {
-    let messageSection = document.getElementById("messages")
+    let messageSection = document.getElementById("results")
+    let playerAttacks = document.getElementById("player-attacks")
+    let opponentAttacks = document.getElementById("opponent-attacks")
     
-    let paragraph = document.createElement("p")
-    paragraph.innerHTML = "Your pet attacked with " + playerAttack + " your opponent's pet attacked with " + opponentAttack  + " - " + result
+    let newPlayerAttack = document.createElement("p")
+    let newOpponentAttack = document.createElement("p")
 
-    messageSection.appendChild(paragraph)
+    messageSection.innerHTML = result
+    newPlayerAttack.innerHTML = playerAttack
+    newOpponentAttack.innerHTML = opponentAttack
+
+    playerAttacks.appendChild(newPlayerAttack)
+    opponentAttacks.appendChild(newOpponentAttack)
 }
 
 function createFinalMessage(finalResult) {
-    let messageSection = document.getElementById("messages")
+    let messageSection = document.getElementById("results")
 
-    let paragraph = document.createElement("p")
-    paragraph.innerHTML = finalResult
-
-    messageSection.appendChild(paragraph)
+    messageSection.innerHTML = finalResult
 
     let fireButton = document.getElementById("fire-button")
     fireButton.disabled = true

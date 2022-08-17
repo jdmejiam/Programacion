@@ -42,13 +42,12 @@ body {
     color: #e2dcc8;
 }
 
-.pet-card img
-{
+.pet-card img {
     width: 80px;
     border-radius: 50%;
 }
 
-#pet-button{
+#pet-button {
     width: 180px;
     height: 40px;
     border-radius: 20px;
@@ -62,4 +61,37 @@ body {
 input
 {
     display: none;
+}
+
+#select-attack {
+    flex-direction: column;
+    align-items: center;
+}
+
+.attack-button {
+    background-color: #0f3d3e;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border-color: transparent;
+    width: 100px;
+    color: #e2dcc8;
+    font-family: "Poppins", sans-serif;
+}
+
+#messages {
+    width: 280px;
+    background: peru;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#restart-button {
+    border: none;
+    color: #100f0f;
+    font-family: "Poppins", sans-serif;
 }
